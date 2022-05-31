@@ -1,14 +1,13 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowCat : MonoBehaviour
+public class HealthBarFollow : MonoBehaviour
 {
-
     public Transform target;
     public Vector3 offset;
     [Range(1, 10)]
     public float smoothFactor;
-
 
     private void FixedUpdate()
     {

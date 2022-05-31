@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CatMovement : MonoBehaviour
 {
@@ -14,9 +15,15 @@ public class CatMovement : MonoBehaviour
     public float hf = 0.0f;
     public float vf = 0.0f;
 
-    public GameObject UiObject;
+    public int maxHealth = 9;
+    public int currentHealth;
+    public HealthBar healthBar;
+
+    public GameObject bullet;
 
     public GameObject hitEffect;
+
+    public GameObject UiObject;
 
     void Start()
     {
@@ -24,25 +31,44 @@ public class CatMovement : MonoBehaviour
         anim = this.GetComponent<Animator>();
 
         UiObject.SetActive(false);
+
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+
+        Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
+
     void Update()
     {
-        EnemyCollision();
-        OnCollision();
+        AnimationInputs();
         ProcessInputs();
+        DeathDetection();
     }
 
-    private void EnemyCollision()
+    void OnCollisionEnter2D(Collision2D other)
     {
-
-    }
-
-    void OnCollision()
-    {
-        if (GetComponent<Collider2D>().gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
-            UiObject.SetActive(true);
+            TakeDamage(1);
             Debug.Log("rah");
+        }
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+       
+        GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 0.2f);
+
+        healthBar.SetHealth(currentHealth);
+    }
+
+    void DeathDetection()
+    {
+        if (currentHealth == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
@@ -78,6 +104,11 @@ public class CatMovement : MonoBehaviour
         anim.SetFloat("Horizontal", hf);
         anim.SetFloat("Vertical", movement.y);
         anim.SetFloat("Speed", vf);
+    }
+
+    void AnimationInputs()
+    {
+ 
     }
 
     void Move()

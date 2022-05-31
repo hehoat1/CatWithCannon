@@ -9,10 +9,19 @@ public class AttackPlayer : MonoBehaviour
     public float moveSpeed = 5;
     private Vector2 movement;
 
+    public int maxHealth = 4;
+    public int currentenemyHealth;
+    public EnemyHealth enemyhealthBar;
+
+    public GameObject testEnemyPrefab;
+    GameObject testEnemyPrefabClone;
 
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+
+        currentenemyHealth = maxHealth;
+        enemyhealthBar.SetEnemyMaxHealth(maxHealth);
     }
 
     void Update()
@@ -26,6 +35,7 @@ public class AttackPlayer : MonoBehaviour
     void FixedUpdate()
     {
         MoveEnemy(movement);
+        EnemySpawn();
     }
 
     void MoveEnemy(Vector2 direction)
@@ -33,12 +43,35 @@ public class AttackPlayer : MonoBehaviour
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if(GetComponent<Collider2D>().gameObject.tag == "cat sprite")
+        if (other.gameObject.tag == "Cannonball")
+        {
+            TakeDamage(1);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision other)
+    {
+        if (other.gameObject.tag == "Cat")
         {
             
         }
     }
-        
+
+    void TakeDamage(int damage)
+    {
+        currentenemyHealth -= damage;
+
+        enemyhealthBar.SetEnemyHealth(currentenemyHealth);
+    }
+    
+    void EnemySpawn()
+    {
+        if (currentenemyHealth == 0)
+        {
+            testEnemyPrefabClone = Instantiate(testEnemyPrefab, new Vector3(Random.Range(-5f, 5), Random.Range(-6f, 6f), 0), Quaternion.identity) as GameObject;
+            Destroy(testEnemyPrefab);
+        }
+    }
 }

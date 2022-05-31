@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7148302070972044928}
   m_Layer: 0
   m_Name: Cannonball
-  m_TagString: Untagged
+  m_TagString: Cannonball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,4 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1951fea32ae2fe645806da1cd63dd0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cat: {fileID: 0}
   hitEffect: {fileID: 5285181324064251511, guid: acca11c44eb7d48438478c24808b6451, type: 3}
+  bullet: {fileID: 1050756799967303301}
