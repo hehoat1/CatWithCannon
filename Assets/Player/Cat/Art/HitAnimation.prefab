@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2486439606192516671}
   - component: {fileID: 7665777640903797048}
   m_Layer: 0
-  m_Name: 9-Sliced
+  m_Name: HitAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
