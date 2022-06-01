@@ -34,11 +34,10 @@ public class NewCatMovement : MonoBehaviour
 
         // move based on direction
         body.velocity = direction * walkSpeed;
-<<<<<<< Updated upstream
         
         // handle direction
         HandleSpriteFlip();
-=======
+
 
         // handle direction
         HandleSpriteFlip();
@@ -53,34 +52,24 @@ public class NewCatMovement : MonoBehaviour
         {
             // doing nothing
         }
->>>>>>> Stashed changes
-
     }
 
     void HandleSpriteFlip()
     {
-<<<<<<< Updated upstream
+
         if(!spriteRenderer.flipX && direction.x < 0)
-=======
-        if (!spriteRenderer.flipX && direction.x < 0)
->>>>>>> Stashed changes
+
         {
             spriteRenderer.flipX = true;
         }
         
-<<<<<<< Updated upstream
+
         else if(spriteRenderer.flipX && direction.x > 0)
-=======
-        else if (spriteRenderer.flipX && direction.x > 0)
->>>>>>> Stashed changes
+
         {
             spriteRenderer.flipX = false;
         }   
     }
-<<<<<<< Updated upstream
-}
-=======
-
 
     List<Sprite> GetSpriteDirection()
     {
@@ -125,4 +114,3 @@ public class NewCatMovement : MonoBehaviour
 
     }
 }
->>>>>>> Stashed changes
