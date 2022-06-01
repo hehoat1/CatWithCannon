@@ -34,22 +34,95 @@ public class NewCatMovement : MonoBehaviour
 
         // move based on direction
         body.velocity = direction * walkSpeed;
+<<<<<<< Updated upstream
         
         // handle direction
         HandleSpriteFlip();
+=======
+
+        // handle direction
+        HandleSpriteFlip();
+        List<Sprite> directionSprites = GetSpriteDirection();
+
+        if (directionSprites != null)
+        {
+            spriteRenderer.sprite = directionSprites[0]; // holding a direction
+        }
+
+        else
+        {
+            // doing nothing
+        }
+>>>>>>> Stashed changes
 
     }
 
     void HandleSpriteFlip()
     {
+<<<<<<< Updated upstream
         if(!spriteRenderer.flipX && direction.x < 0)
+=======
+        if (!spriteRenderer.flipX && direction.x < 0)
+>>>>>>> Stashed changes
         {
             spriteRenderer.flipX = true;
         }
         
+<<<<<<< Updated upstream
         else if(spriteRenderer.flipX && direction.x > 0)
+=======
+        else if (spriteRenderer.flipX && direction.x > 0)
+>>>>>>> Stashed changes
         {
             spriteRenderer.flipX = false;
         }   
     }
+<<<<<<< Updated upstream
 }
+=======
+
+
+    List<Sprite> GetSpriteDirection()
+    {
+        List<Sprite> selectedSprites = null;
+
+        if (direction.y > 0) // north
+        {
+            if (Mathf.Abs(direction.x) > 0)
+            {
+                selectedSprites = neSprites;
+            }
+
+            else
+            {
+                selectedSprites = nSprites;
+            }
+        }
+        
+        else if (direction.y < 0) // south
+        {
+            if (Mathf.Abs(direction.x) > 0)
+            {
+                selectedSprites = seSprites;
+            }
+
+            else
+            {
+                selectedSprites = sSprites;
+            }
+        } 
+        
+        else // neutral
+        {
+            if (Mathf.Abs(direction.x) > 0)
+            {
+                selectedSprites = eSprites;
+            }
+        }
+
+        return selectedSprites;
+
+
+    }
+}
+>>>>>>> Stashed changes
