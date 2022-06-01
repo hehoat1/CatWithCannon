@@ -18,6 +18,8 @@ public class NewCatMovement : MonoBehaviour
     public float walkSpeed;
     public float frameRate;
 
+    float idleTime;
+
     Vector2 direction;
     
     // Start is called before the first frame update
@@ -45,11 +47,16 @@ public class NewCatMovement : MonoBehaviour
 
         if (directionSprites != null)
         {
-            spriteRenderer.sprite = directionSprites[0]; // holding a direction
+            float playTime = Time.time - idleTime;
+            int totalFrames = (int)(playTime * frameRate);
+            int frame = totalFrames % directionSprites.Count; 
+
+            spriteRenderer.sprite = directionSprites[frame];
         }
 
         else
         {
+            idleTime = Time.time;
             // doing nothing
         }
     }
