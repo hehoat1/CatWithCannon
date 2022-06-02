@@ -7,16 +7,22 @@ using UnityEngine.SceneManagement;
 
 public class CatMovement : MonoBehaviour
 {
-    public float movementSpeed = 1f;   //Movement Speed of the Player
-    public Vector2 movement;           //Movement Axis
-    public Rigidbody2D body;      //Player Rigidbody Component
+    // Body and Spriterender
+    public Rigidbody2D body;    
+    public SpriteRenderer spriteRenderer;
 
-    public Animator anim;
-    public float hf = 0.0f;
-    public float vf = 0.0f;
+    // Changeable values
+    public float walkSpeed;
+    public float frameRate;
 
-    public int maxHealth = 9;
-    public int currentHealth;
+    // Lists of Different Directions
+    public List<Sprite> nSprites;
+    public List<Sprite> neSprites;
+    public List<Sprite> eSprites;
+    public List<Sprite> seSprites;
+    public List<Sprite> sSprites;
+
+    // Other references
     public HealthBar healthBar;
 
     public GameObject bullet;
@@ -25,25 +31,120 @@ public class CatMovement : MonoBehaviour
 
     public GameObject UiObject;
 
+    // Private variables
+    float idleTime;
+    Vector2 direction;
+    int currentHealth;
+
+    int maxHealth = 9;
+
+
+    // Unity Functions
     void Start()
     {
-        body = this.GetComponent<Rigidbody2D>();
-        anim = this.GetComponent<Animator>();
-
         UiObject.SetActive(false);
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
 
-        Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>()); // dont think 'bullet' will work
     }
 
     void Update()
     {
-        AnimationInputs();
-        ProcessInputs();
         DeathDetection();
+        Animate();
+        HandleSpriteFlip(); // handle direction flip
     }
+    void FixedUpdate()
+    {
+        // get direction
+        direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+
+        // move based on direction
+        body.velocity = direction * walkSpeed;
+    }
+
+    // Non-Unity Functions
+
+    // Animation
+    void HandleSpriteFlip()
+    {
+
+        if(!spriteRenderer.flipX && direction.x < 0)
+
+        {
+            spriteRenderer.flipX = true;
+        }
+        
+
+        else if(spriteRenderer.flipX && direction.x > 0)
+
+        {
+            spriteRenderer.flipX = false;
+        }   
+    }
+
+    List<Sprite> GetSpriteDirection()
+    {
+        List<Sprite> selectedSprites = null;
+
+        if (direction.y > 0) // north
+        {
+            if (Mathf.Abs(direction.x) > 0)
+            {
+                selectedSprites = neSprites;
+            }
+
+            else
+            {
+                selectedSprites = nSprites;
+            }
+        }
+        
+        else if (direction.y < 0) // south
+        {
+            if (Mathf.Abs(direction.x) > 0)
+            {
+                selectedSprites = seSprites;
+            }
+
+            else
+            {
+                selectedSprites = sSprites;
+            }
+        } 
+        
+        else // neutral
+        {
+            if (Mathf.Abs(direction.x) > 0)
+            {
+                selectedSprites = eSprites;
+            }
+        }
+
+        return selectedSprites;
+    }
+
+    void Animate()
+    {
+        List<Sprite> directionSprites = GetSpriteDirection();
+
+        if (directionSprites != null)
+        {
+            float playTime = Time.time - idleTime;
+            int totalFrames = (int)(playTime * frameRate);
+            int frame = totalFrames % directionSprites.Count; 
+
+            spriteRenderer.sprite = directionSprites[frame];
+        }
+
+        else
+        {
+            idleTime = Time.time;
+        }
+    }
+
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -53,6 +154,7 @@ public class CatMovement : MonoBehaviour
             Debug.Log("rah");
         }
     }
+
 
     void TakeDamage(int damage)
     {
@@ -64,6 +166,7 @@ public class CatMovement : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
+
     void DeathDetection()
     {
         if (currentHealth == 0)
@@ -72,48 +175,9 @@ public class CatMovement : MonoBehaviour
         }
     }
 
+
     void OnTriggerExit(Collider other)
     {
         UiObject.SetActive(false);
     }
-
-
-    void FixedUpdate()
-    {
-        Move();
-    }
-
-    void ProcessInputs()
-    {
-
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        movement = movement.normalized;
-
-        hf = movement.x > 0.01f ? movement.x : movement.x < -0.01f ? 1 : 0;
-        vf = movement.y > 0.01f ? movement.y : movement.y < -0.01f ? 1 : 0;
-        if (movement.x < -0.01f)
-        {
-            this.gameObject.transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            this.gameObject.transform.localScale = new Vector3(1, 1, 1);
-        }
-
-        anim.SetFloat("Horizontal", hf);
-        anim.SetFloat("Vertical", movement.y);
-        anim.SetFloat("Speed", vf);
-    }
-
-    void AnimationInputs()
-    {
- 
-    }
-
-    void Move()
-    {
-        body.MovePosition(body.position + movement * movementSpeed * Time.fixedDeltaTime);
-    }
 }
-

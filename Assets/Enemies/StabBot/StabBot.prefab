@@ -310,7 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   moveSpeed: 1
-  maxHealth: 5
+  maxHealth: 6
   currentenemyHealth: 0
   enemyhealthBar: {fileID: 3892108108188906443}
   testEnemyPrefab: {fileID: 3892108108428050401}

@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1582813422209202142}
-  - component: {fileID: 1582813422209202143}
   - component: {fileID: 1582813422209202140}
-  - component: {fileID: 1582813422209202141}
+  - component: {fileID: 1582813422209202143}
   - component: {fileID: 1582813422209202138}
   - component: {fileID: 6880988198736711965}
   m_Layer: 0
@@ -36,6 +35,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1582813422209202140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582813422209202136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a80563a15bddb003bc2dbe0f63b2a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 1582813422209202138}
+  spriteRenderer: {fileID: 1582813422209202143}
+  walkSpeed: 5
+  frameRate: 10
+  maxHealth: 9
+  nSprites:
+  - {fileID: 80267533, guid: 9bd5bde167ccd5bbca8213d5b5c531ac, type: 3}
+  - {fileID: -1462783687, guid: 9bd5bde167ccd5bbca8213d5b5c531ac, type: 3}
+  - {fileID: -750576874, guid: 9bd5bde167ccd5bbca8213d5b5c531ac, type: 3}
+  neSprites:
+  - {fileID: -798983076, guid: 51f4205b14b5b86409f867251091951d, type: 3}
+  - {fileID: 1545729562, guid: 51f4205b14b5b86409f867251091951d, type: 3}
+  - {fileID: -438201719, guid: 51f4205b14b5b86409f867251091951d, type: 3}
+  eSprites:
+  - {fileID: -353622997, guid: 901e8719ef774ed3d881603551277d0f, type: 3}
+  - {fileID: 1324578243, guid: 901e8719ef774ed3d881603551277d0f, type: 3}
+  - {fileID: -583836967, guid: 901e8719ef774ed3d881603551277d0f, type: 3}
+  seSprites:
+  - {fileID: 858128932, guid: 261d419145a0ae64eb235fd27d0d7483, type: 3}
+  - {fileID: 50257948, guid: 261d419145a0ae64eb235fd27d0d7483, type: 3}
+  - {fileID: -556554827, guid: 261d419145a0ae64eb235fd27d0d7483, type: 3}
+  sSprites:
+  - {fileID: 460793649, guid: e2a7bb159fff9fd47a091bfc48defd05, type: 3}
+  - {fileID: 1532238490, guid: e2a7bb159fff9fd47a091bfc48defd05, type: 3}
+  - {fileID: 1893475867, guid: e2a7bb159fff9fd47a091bfc48defd05, type: 3}
+  healthBar: {fileID: 0}
+  bullet: {fileID: 1050756799967303301, guid: f5b013d1ed0bdcd43a5ecea8632d0fbd, type: 3}
+  hitEffect: {fileID: 2470272760391178039, guid: 8471dd32fede60941b75eb4a4f6c5118, type: 3}
+  UiObject: {fileID: 6787048945311807843, guid: dca3a4d60bb852c4fa5c375951deca5f, type: 3}
 --- !u!212 &1582813422209202143
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88,46 +128,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1582813422209202140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582813422209202136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a80563a15bddb003bc2dbe0f63b2a47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 4
-  movement: {x: 0, y: 0}
-  rigidbody: {fileID: 1582813422209202138}
-  anim: {fileID: 1582813422209202141}
-  hf: 0
-  vf: 0
-  UiObject: {fileID: 6787048945311807843, guid: dca3a4d60bb852c4fa5c375951deca5f, type: 3}
-  hitEffect: {fileID: 3266111427676650393, guid: 8471dd32fede60941b75eb4a4f6c5118, type: 3}
---- !u!95 &1582813422209202141
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582813422209202136}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 105842b23d5ed43f9bd040b0b8977502, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &1582813422209202138
 Rigidbody2D:
   serializedVersion: 4
@@ -146,8 +146,8 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!60 &6880988198736711965
 PolygonCollider2D:
