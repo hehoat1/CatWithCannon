@@ -5,7 +5,7 @@ using System.Threading;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class CatMovement : MonoBehaviour
+public class CatBehavior : MonoBehaviour
 {
     // Body and Spriterender
     public Rigidbody2D body;    
