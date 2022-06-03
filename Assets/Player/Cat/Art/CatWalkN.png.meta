@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 175
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -66,7 +66,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -114,7 +114,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: CatWalkN_0
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 157
+        width: 239
+        height: 677
+      alignment: 9
+      pivot: {x: 0.4807231, y: 0.60397524}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8303425caf78f10a8b421ce9a5acbbe3
+      internalID: -101994944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CatWalkN_1
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 149
+        width: 227
+        height: 682
+      alignment: 9
+      pivot: {x: 0.5059137, y: 0.6108381}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5489afad7b4f6868bb0e1f115c118f1f
+      internalID: 97549956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CatWalkN_2
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 138
+        width: 229
+        height: 680
+      alignment: 9
+      pivot: {x: 0.48771834, y: 0.60449874}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f078ecffd07fc5e45823630dfb76171e
+      internalID: 1229334248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CatWalkN_3
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 153
+        width: 224
+        height: 676
+      alignment: 9
+      pivot: {x: 0.5057324, y: 0.61176604}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1627c0a62b40143c582a482a5f562a8c
+      internalID: 862973355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CatWalkN_4
+      rect:
+        serializedVersion: 2
+        x: 1861
+        y: 147
+        width: 233
+        height: 682
+      alignment: 9
+      pivot: {x: 0.50512433, y: 0.60993004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af99431caf17b9a06aa6c8d8f2b3ad65
+      internalID: 616693913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -125,7 +230,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CatWalkN_1: 97549956
+      CatWalkN_0: -101994944
+      CatWalkN_3: 862973355
+      CatWalkN_2: 1229334248
+      CatWalkN_4: 616693913
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
