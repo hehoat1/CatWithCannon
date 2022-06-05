@@ -6,7 +6,7 @@ public class BallShoot : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public float projectileSpeed = 30f;
+    public float projectileSpeed = 50f;
     public float shotDelay;
     public float fireRate = 0.5f;
     private float nextFire = 0.0f;
