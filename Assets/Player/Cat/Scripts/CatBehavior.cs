@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class CatBehavior : MonoBehaviour
 {
-    // Body and Spriterender
+    // Cat Body Transformation References (Unity)
     public Rigidbody2D body;    
     public SpriteRenderer spriteRenderer;
 
@@ -48,6 +48,7 @@ public class CatBehavior : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
 
         Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>()); // dont think 'bullet' will work
+
     }
 
     void Update()
