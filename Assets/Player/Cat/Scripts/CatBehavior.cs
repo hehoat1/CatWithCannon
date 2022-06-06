@@ -46,9 +46,6 @@ public class CatBehavior : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-
-        Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>()); // dont think 'bullet' will work
-
     }
 
     void Update()
