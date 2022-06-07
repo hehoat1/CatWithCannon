@@ -1144,7 +1144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7493706966944344735, guid: 2e5eb1bc21d4c7534a2d60b22060fe69, type: 3}
       propertyPath: fireRate
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 29468841319940916, guid: 2e5eb1bc21d4c7534a2d60b22060fe69, type: 3}
@@ -1162,7 +1162,7 @@ PrefabInstance:
       objectReference: {fileID: 279447543}
     - target: {fileID: 3892108108428050400, guid: 039f54455f4b35e95a0e4094ab3be067, type: 3}
       propertyPath: maxHealth
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3892108108428050401, guid: 039f54455f4b35e95a0e4094ab3be067, type: 3}
       propertyPath: m_Name
