@@ -10,7 +10,7 @@ public class CatBehavior : MonoBehaviour
     // Cat Body Transformation References (Unity)
     public Rigidbody2D body;    
     public SpriteRenderer spriteRenderer;
-
+    
     // Changeable values
     public float walkSpeed;
     public float frameRate;
@@ -33,9 +33,8 @@ public class CatBehavior : MonoBehaviour
 
     // Private variables
     float idleTime;
-    Vector2 direction;
     int currentHealth;
-
+    Vector2 directionWithSpeed;
     int maxHealth = 9;
 
 
@@ -46,103 +45,82 @@ public class CatBehavior : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-
-        Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>()); // dont think 'bullet' will work
-
     }
 
     void Update()
     {
         DeathDetection();
-        Animate();
-        HandleSpriteFlip(); // handle direction flip
     }
     void FixedUpdate()
     {
         // get direction
-        direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+        Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
 
         // move based on direction
-        body.velocity = direction * walkSpeed;
+        directionWithSpeed = direction * walkSpeed;
+        body.velocity = directionWithSpeed;
+        Rotate(directionWithSpeed);
+        Animate();
     }
-
-    // Non-Unity Functions
 
     // Animation
-    void HandleSpriteFlip()
+
+    void Rotate(Vector2 directionWithSpeed)
     {
-
-        if(!spriteRenderer.flipX && direction.x < 0)
-
+        if (directionWithSpeed.x < 0 && directionWithSpeed.y > 0)
         {
-            spriteRenderer.flipX = true;
-        }
-        
-
-        else if(spriteRenderer.flipX && direction.x > 0)
-
-        {
-            spriteRenderer.flipX = false;
-        }   
-    }
-
-    List<Sprite> GetSpriteDirection()
-    {
-        List<Sprite> selectedSprites = null;
-
-        if (direction.y > 0) // north
-        {
-            if (Mathf.Abs(direction.x) > 0)
-            {
-                selectedSprites = neSprites;
-            }
-
-            else
-            {
-                selectedSprites = nSprites;
-            }
-        }
-        
-        else if (direction.y < 0) // south
-        {
-            if (Mathf.Abs(direction.x) > 0)
-            {
-                selectedSprites = seSprites;
-            }
-
-            else
-            {
-                selectedSprites = sSprites;
-            }
-        } 
-        
-        else // neutral
-        {
-            if (Mathf.Abs(direction.x) > 0)
-            {
-                selectedSprites = eSprites;
-            }
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 45.0f);
         }
 
-        return selectedSprites;
+        else if (directionWithSpeed.x < 0 && directionWithSpeed.y == 0)
+        {
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
+        }
+
+        else if (directionWithSpeed.x < 0 && directionWithSpeed.y < 0)
+        {
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 135.0f);
+        }
+
+        else if (directionWithSpeed.x == 0 && directionWithSpeed.y < 0)
+        {
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
+        }
+
+        else if (directionWithSpeed.x > 0 && directionWithSpeed.y < 0)
+        {
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 225.0f);
+        }
+
+        else if (directionWithSpeed.x > 0 && directionWithSpeed.y == 0)
+        {
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 270.0f);
+        }
+
+        else if (directionWithSpeed.x > 0 && directionWithSpeed.y > 0)
+        {
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 315.0f);
+        }
+
+        else if (directionWithSpeed.x == 0 && directionWithSpeed.y > 0) 
+        {
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+        }
     }
 
     void Animate()
     {
-        List<Sprite> directionSprites = GetSpriteDirection();
-
-        if (directionSprites != null)
+        if (true) // actually moving?
         {
             float playTime = Time.time - idleTime;
             int totalFrames = (int)(playTime * frameRate);
-            int frame = totalFrames % directionSprites.Count; 
+            int frame = totalFrames % nSprites.Count; 
 
-            spriteRenderer.sprite = directionSprites[frame];
+            spriteRenderer.sprite = nSprites[frame];
         }
-
         else
         {
-            idleTime = Time.time;
+            spriteRenderer.sprite = nSprites[2];
         }
     }
 
