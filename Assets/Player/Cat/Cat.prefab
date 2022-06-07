@@ -319,7 +319,7 @@ MonoBehaviour:
   body: {fileID: 1582813422209202138}
   spriteRenderer: {fileID: 1582813422209202143}
   walkSpeed: 5
-  frameRate: 10
+  frameRate: 11
   rotationSpeed: 30
   walkingAnimation:
   - {fileID: -101994944, guid: 1b12b50272bffc0398dbf7444547864f, type: 3}
