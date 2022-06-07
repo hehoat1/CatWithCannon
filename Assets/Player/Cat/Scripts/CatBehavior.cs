@@ -14,6 +14,7 @@ public class CatBehavior : MonoBehaviour
     // Changeable values
     public float walkSpeed;
     public float frameRate;
+    public float rotationSpeed;
 
     // Lists of Different Directions
     public List<Sprite> walkingAnimation;
@@ -73,42 +74,42 @@ public class CatBehavior : MonoBehaviour
     {
         if (directionWithSpeed.x < 0 && directionWithSpeed.y > 0)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 45.0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, 45.0f), Time.deltaTime * rotationSpeed);
         }
 
         else if (directionWithSpeed.x < 0 && directionWithSpeed.y == 0)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, 90.0f), Time.deltaTime * rotationSpeed);
         }
 
         else if (directionWithSpeed.x < 0 && directionWithSpeed.y < 0)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 135.0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, 135.0f), Time.deltaTime * rotationSpeed);
         }
 
         else if (directionWithSpeed.x == 0 && directionWithSpeed.y < 0)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, 180.0f), Time.deltaTime * rotationSpeed);
         }
 
         else if (directionWithSpeed.x > 0 && directionWithSpeed.y < 0)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 225.0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, 225.0f), Time.deltaTime * rotationSpeed);
         }
 
         else if (directionWithSpeed.x > 0 && directionWithSpeed.y == 0)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 270.0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, 270.0f), Time.deltaTime * rotationSpeed);
         }
 
         else if (directionWithSpeed.x > 0 && directionWithSpeed.y > 0)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 315.0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, 315.0f), Time.deltaTime * rotationSpeed);
         }
 
         else if (directionWithSpeed.x == 0 && directionWithSpeed.y > 0) 
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, 0.0f), Time.deltaTime * rotationSpeed);
         }
     }
 
