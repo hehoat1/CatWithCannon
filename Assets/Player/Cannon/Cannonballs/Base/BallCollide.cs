@@ -11,7 +11,6 @@ public class BallCollide : MonoBehaviour
     void Start()
     {
         Physics2D.IgnoreLayerCollision(10, 13, true);
-        Physics2D.IgnoreLayerCollision(13, 13, true);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
