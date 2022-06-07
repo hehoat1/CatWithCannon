@@ -16,11 +16,7 @@ public class CatBehavior : MonoBehaviour
     public float frameRate;
 
     // Lists of Different Directions
-    public List<Sprite> nSprites;
-    public List<Sprite> neSprites;
-    public List<Sprite> eSprites;
-    public List<Sprite> seSprites;
-    public List<Sprite> sSprites;
+    public List<Sprite> walkingAnimation;
 
     // Other references
     public HealthBar healthBar;
@@ -38,7 +34,7 @@ public class CatBehavior : MonoBehaviour
     int maxHealth = 9;
 
 
-    // Unity Functions
+// Unity Functions==========================
     void Start()
     {
         UiObject.SetActive(false);
@@ -50,8 +46,19 @@ public class CatBehavior : MonoBehaviour
     void Update()
     {
         DeathDetection();
+        Animate();
+        Rotate();
     }
+
+
     void FixedUpdate()
+    {
+        Move();  // there's a new way to do this I think in 2022?? maybe its fine..
+    }
+
+
+    // Functions
+    void Move()
     {
         // get direction
         Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
@@ -59,13 +66,10 @@ public class CatBehavior : MonoBehaviour
         // move based on direction
         directionWithSpeed = direction * walkSpeed;
         body.velocity = directionWithSpeed;
-        Rotate(directionWithSpeed);
-        Animate();
     }
 
-    // Animation
 
-    void Rotate(Vector2 directionWithSpeed)
+    void Rotate() //simplify?
     {
         if (directionWithSpeed.x < 0 && directionWithSpeed.y > 0)
         {
@@ -108,19 +112,21 @@ public class CatBehavior : MonoBehaviour
         }
     }
 
+
     void Animate()
     {
-        if (true) // actually moving?
+        if (!(directionWithSpeed.x == 0 && directionWithSpeed.y == 0)) // actually moving? how does this work???
         {
             float playTime = Time.time - idleTime;
             int totalFrames = (int)(playTime * frameRate);
-            int frame = totalFrames % nSprites.Count; 
+            int frame = totalFrames % walkingAnimation.Count; 
 
-            spriteRenderer.sprite = nSprites[frame];
+            spriteRenderer.sprite = walkingAnimation[frame];
         }
+
         else
         {
-            spriteRenderer.sprite = nSprites[2];
+            spriteRenderer.sprite = walkingAnimation[2];
         }
     }
 

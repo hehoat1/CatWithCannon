@@ -320,36 +320,12 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1582813422209202143}
   walkSpeed: 5
   frameRate: 10
-  nSprites:
+  walkingAnimation:
   - {fileID: -101994944, guid: 1b12b50272bffc0398dbf7444547864f, type: 3}
   - {fileID: 97549956, guid: 1b12b50272bffc0398dbf7444547864f, type: 3}
   - {fileID: 1229334248, guid: 1b12b50272bffc0398dbf7444547864f, type: 3}
   - {fileID: 862973355, guid: 1b12b50272bffc0398dbf7444547864f, type: 3}
   - {fileID: 616693913, guid: 1b12b50272bffc0398dbf7444547864f, type: 3}
-  neSprites:
-  - {fileID: -1041585980, guid: 1c597cd0d914e9242bb20bbf4ca2dcc4, type: 3}
-  - {fileID: -876579219, guid: 1c597cd0d914e9242bb20bbf4ca2dcc4, type: 3}
-  - {fileID: 583014423, guid: 1c597cd0d914e9242bb20bbf4ca2dcc4, type: 3}
-  - {fileID: -1054253707, guid: 1c597cd0d914e9242bb20bbf4ca2dcc4, type: 3}
-  - {fileID: 1284236138, guid: 1c597cd0d914e9242bb20bbf4ca2dcc4, type: 3}
-  eSprites:
-  - {fileID: -1761604639, guid: bf4f86147c2629383bc112c74b6c2962, type: 3}
-  - {fileID: -967412458, guid: bf4f86147c2629383bc112c74b6c2962, type: 3}
-  - {fileID: -282960129, guid: bf4f86147c2629383bc112c74b6c2962, type: 3}
-  - {fileID: 725541876, guid: bf4f86147c2629383bc112c74b6c2962, type: 3}
-  - {fileID: 1332882503, guid: bf4f86147c2629383bc112c74b6c2962, type: 3}
-  seSprites:
-  - {fileID: 1755013829, guid: f1fc4614f67bdb33888be41acc5fbe2e, type: 3}
-  - {fileID: -2102198085, guid: f1fc4614f67bdb33888be41acc5fbe2e, type: 3}
-  - {fileID: -1551547030, guid: f1fc4614f67bdb33888be41acc5fbe2e, type: 3}
-  - {fileID: -144904644, guid: f1fc4614f67bdb33888be41acc5fbe2e, type: 3}
-  - {fileID: 910549574, guid: f1fc4614f67bdb33888be41acc5fbe2e, type: 3}
-  sSprites:
-  - {fileID: -1270148931, guid: 107d59d7783e7bdc8b8a427b29f2a929, type: 3}
-  - {fileID: -1690910961, guid: 107d59d7783e7bdc8b8a427b29f2a929, type: 3}
-  - {fileID: 304023049, guid: 107d59d7783e7bdc8b8a427b29f2a929, type: 3}
-  - {fileID: 1696792585, guid: 107d59d7783e7bdc8b8a427b29f2a929, type: 3}
-  - {fileID: -574024869, guid: 107d59d7783e7bdc8b8a427b29f2a929, type: 3}
   healthBar: {fileID: 0}
   bullet: {fileID: 1050756799967303301, guid: f5b013d1ed0bdcd43a5ecea8632d0fbd, type: 3}
   hitEffect: {fileID: 2470272760391178039, guid: 8471dd32fede60941b75eb4a4f6c5118, type: 3}
