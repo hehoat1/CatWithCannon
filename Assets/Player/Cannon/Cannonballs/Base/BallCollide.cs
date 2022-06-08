@@ -16,7 +16,7 @@ public class BallCollide : MonoBehaviour
 
         projectileSpeed = 10;
 
-        multiShot = true;
+        multiShot = false;
     }
 
     void Update()

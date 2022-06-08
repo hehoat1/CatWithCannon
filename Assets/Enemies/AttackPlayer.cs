@@ -25,23 +25,9 @@ public class AttackPlayer : MonoBehaviour
         enemyhealthBar.SetEnemyMaxHealth(maxHealth);
     }
 
-    void Update()
-    {
-        Vector3 direction = player.position - transform.position;
-        rb.rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        movement = direction;
-    }
-
     void FixedUpdate()
     {
-        MoveEnemy(movement);
         EnemySpawn();
-    }
-
-    void MoveEnemy(Vector2 direction)
-    {
-        rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
     }
 
     void OnCollisionEnter2D(Collision2D other)
