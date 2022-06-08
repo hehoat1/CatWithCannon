@@ -7,7 +7,7 @@ public class BallCollide : MonoBehaviour
     public GameObject hitEffect;
     public GameObject bullet;
     public GameObject bulletPrefab;
-    public bool multiShot;
+    public bool multiShot = true;
     public float projectileSpeed;
 
     void Start()
@@ -16,7 +16,6 @@ public class BallCollide : MonoBehaviour
 
         projectileSpeed = 10;
 
-        multiShot = false;
     }
 
     void Update()
