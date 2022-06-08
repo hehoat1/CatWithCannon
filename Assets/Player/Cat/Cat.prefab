@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1582813422209202143}
   - component: {fileID: 119537118556128669}
   - component: {fileID: 1582813422209202138}
-  - component: {fileID: 8498305148250290178}
+  - component: {fileID: 8425214640480096148}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -129,7 +129,7 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &8498305148250290178
+--- !u!60 &8425214640480096148
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
