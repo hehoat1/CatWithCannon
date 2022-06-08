@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 80267533, guid: 9bd5bde167ccd5bbca8213d5b5c531ac, type: 3}
+  m_Sprite: {fileID: -1462783687, guid: 9bd5bde167ccd5bbca8213d5b5c531ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,28 +101,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 1582813422209202138}
   spriteRenderer: {fileID: 1582813422209202143}
-  nSprites:
+  walkingAnimation:
   - {fileID: 80267533, guid: 9bd5bde167ccd5bbca8213d5b5c531ac, type: 3}
   - {fileID: -1462783687, guid: 9bd5bde167ccd5bbca8213d5b5c531ac, type: 3}
   - {fileID: -750576874, guid: 9bd5bde167ccd5bbca8213d5b5c531ac, type: 3}
-  neSprites:
-  - {fileID: -798983076, guid: 51f4205b14b5b86409f867251091951d, type: 3}
-  - {fileID: 1545729562, guid: 51f4205b14b5b86409f867251091951d, type: 3}
-  - {fileID: -438201719, guid: 51f4205b14b5b86409f867251091951d, type: 3}
-  eSprites:
-  - {fileID: -353622997, guid: 901e8719ef774ed3d881603551277d0f, type: 3}
-  - {fileID: 1324578243, guid: 901e8719ef774ed3d881603551277d0f, type: 3}
-  - {fileID: -583836967, guid: 901e8719ef774ed3d881603551277d0f, type: 3}
-  seSprites:
-  - {fileID: 858128932, guid: 261d419145a0ae64eb235fd27d0d7483, type: 3}
-  - {fileID: 50257948, guid: 261d419145a0ae64eb235fd27d0d7483, type: 3}
-  - {fileID: -556554827, guid: 261d419145a0ae64eb235fd27d0d7483, type: 3}
-  sSprites:
-  - {fileID: 460793649, guid: e2a7bb159fff9fd47a091bfc48defd05, type: 3}
-  - {fileID: 1532238490, guid: e2a7bb159fff9fd47a091bfc48defd05, type: 3}
-  - {fileID: 1893475867, guid: e2a7bb159fff9fd47a091bfc48defd05, type: 3}
-  walkSpeed: 100
-  frameRate: 12
+  walkSpeed: 6
+  frameRate: 11
+  rotationSpeed: 25
 --- !u!50 &1582813422209202138
 Rigidbody2D:
   serializedVersion: 4
@@ -161,7 +146,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8333333, y: 2.2666667}
+    oldSize: {x: 0.7866667, y: 2.31}
     newSize: {x: 0.72333336, y: 2.2233334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
