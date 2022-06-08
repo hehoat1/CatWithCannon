@@ -11,18 +11,40 @@ public class BallShoot : MonoBehaviour
     public float fireRate = 0.5f;
     private float nextFire = 0.0f;
 
+    //card types
+    public bool shootBase;
+    public bool multiShot;
+
+    void Start()
+    {
+        shootBase = true;
+        multiShot = false;
+    }
+
     void Update()
     {
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
 
-            Shoot();
+            ShootBase();
+
+            if (multiShot == true)
+            {
+                MultiShot();
+            }
         }
 
     }
 
-    void Shoot()
+    void ShootBase()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(firePoint.up * projectileSpeed, ForceMode2D.Impulse);
+    }
+
+    void MultiShot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
